@@ -15,6 +15,8 @@
 - python3
 - python3-pip
 - python3-venv 
+- mosquitto 
+- mosquitto-clients
 
 ## manual start application
 1. install python3
@@ -37,5 +39,5 @@ pip install -r requirements.txt
 
 5. run script
 ```
-python getSampleReading.py
+python src/getSampleReading.py
 ```
