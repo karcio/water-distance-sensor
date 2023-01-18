@@ -1,6 +1,12 @@
 #!/usr/bin/python
+import paho.mqtt.client as mqtt 
 import RPi.GPIO as GPIO
 import time
+
+
+mqttBroker ="localhost" 
+client = mqtt.Client("Water_level")
+client.connect(mqttBroker) 
 
 while True:
     try:
@@ -30,6 +36,8 @@ while True:
         pulse_duration = pulse_end_time - pulse_start_time
         distance = round(pulse_duration * 17150, 2)
         print ("Distance:",distance,"cm")
+        client.publish("DISTANCE", distance)
+        print("Published " + str(distance) + " to topic DISTANCE")
 
     finally:
         GPIO.cleanup()
