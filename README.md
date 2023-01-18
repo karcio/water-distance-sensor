@@ -12,7 +12,9 @@
 
 ## Software
 
-- python 3
+- python3
+- python3-pip
+- python3-venv 
 
 ## manual start application
 1. install python3
