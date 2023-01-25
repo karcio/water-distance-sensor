@@ -7,6 +7,7 @@ import time
 mqttBroker ="localhost" 
 client = mqtt.Client("Water_level")
 client.connect(mqttBroker) 
+topic = "home/attic/distance"
 
 while True:
     try:
@@ -36,8 +37,8 @@ while True:
         pulse_duration = pulse_end_time - pulse_start_time
         distance = round(pulse_duration * 17150, 2)
         print ("Distance:",distance,"cm")
-        client.publish("DISTANCE", distance)
-        print("Published " + str(distance) + " to topic DISTANCE")
+        client.publish(topic, distance)
+        print("Published " + str(distance) + " to" ,topic)
 
     finally:
         GPIO.cleanup()
