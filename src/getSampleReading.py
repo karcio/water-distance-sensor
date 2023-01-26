@@ -5,7 +5,7 @@ import time
 
 
 mqttBroker ="localhost" 
-client = mqtt.Client("Water_level")
+client = mqtt.Client()
 client.connect(mqttBroker) 
 topic = "home/attic/distance"
 
@@ -21,7 +21,7 @@ while True:
 
         GPIO.output(PIN_TRIGGER, GPIO.LOW)
 
-        time.sleep(2)
+        time.sleep(20)
 
         GPIO.output(PIN_TRIGGER, GPIO.HIGH)
 
